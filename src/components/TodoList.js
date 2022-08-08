@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import TodoItem from './TodoItem';
 
-class TodosList extends React.Component {
+class TodosList extends PureComponent {
   render() {
-    const { todos } = this.props;
+    const { todos, handleChangeProps, deleteTodoProps } = this.props;
     return (
       <ul>
         {todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} />
+          <TodoItem key={todo.id} todo={todo} handleChangeProps={handleChangeProps} deleteTodoProps={deleteTodoProps} />
         ))}
       </ul>
     );
