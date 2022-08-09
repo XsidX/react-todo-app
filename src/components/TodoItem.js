@@ -2,6 +2,10 @@ import React, { PureComponent } from 'react';
 import styles from './TodoItem.module.scss';
 
 export default class TodoItem extends PureComponent {
+  componentWillUnmount() {
+    console.log('Cleaning up...');
+  }
+
   render() {
     const completedStyle = {
       fontStyle: 'italic',
