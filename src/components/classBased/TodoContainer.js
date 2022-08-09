@@ -4,7 +4,7 @@ import TodosList from './TodoList';
 import InputTodo from './inputTodo';
 import Header from './Header';
 
-import '../App.css';
+import '../../App.css';
 
 class TodoContainer extends PureComponent {
   constructor(props) {
