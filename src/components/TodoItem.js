@@ -1,11 +1,8 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './TodoItem.module.scss';
 
-export default class TodoItem extends PureComponent {
-  componentWillUnmount() {
-    console.log('Cleaning up...');
-  }
-
+class TodoItem extends PureComponent {
   render() {
     const completedStyle = {
       fontStyle: 'italic',
@@ -30,3 +27,21 @@ export default class TodoItem extends PureComponent {
     );
   }
 }
+
+TodoItem.propTypes = {
+  todo: PropTypes.shape({
+    title: PropTypes.string,
+    completed: PropTypes.bool,
+    id: PropTypes.number,
+  }),
+  handleChangeProps: PropTypes.func,
+  deleteTodoProps: PropTypes.func,
+};
+
+TodoItem.defaultProps = {
+  todo: { title: '' },
+  handleChangeProps: () => {},
+  deleteTodoProps: () => {},
+};
+
+export default TodoItem;

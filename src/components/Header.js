@@ -17,7 +17,8 @@ export default class Header extends PureComponent {
             color: '#ececec',
             textTransform: 'lowercase',
             textAlign: 'center',
-          }}>
+          }}
+        >
           todos
         </h1>
       </header>

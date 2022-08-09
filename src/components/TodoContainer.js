@@ -25,8 +25,9 @@ class TodoContainer extends PureComponent {
   }
 
   componentDidUpdate(prevState) {
-    if (prevState.todos !== this.state.todos) {
-      const temp = JSON.stringify(this.state.todos);
+    const { todos } = this.state;
+    if (prevState.todos !== todos) {
+      const temp = JSON.stringify(todos);
       localStorage.setItem('todos', temp);
     }
   }
@@ -69,7 +70,11 @@ class TodoContainer extends PureComponent {
         <div className="inner">
           <Header />
           <InputTodo addTodoProps={this.addTodoItem} />
-          <TodosList todos={todos} handleChangeProps={this.handleChange} deleteTodoProps={this.delTodo} />
+          <TodosList
+            todos={todos}
+            handleChangeProps={this.handleChange}
+            deleteTodoProps={this.delTodo}
+          />
         </div>
       </div>
     );

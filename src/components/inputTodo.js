@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 class InputTodo extends PureComponent {
   constructor(props) {
@@ -15,14 +16,17 @@ class InputTodo extends PureComponent {
   };
 
   handleSubmit = (e) => {
+    const { title } = this.state;
+    const { addTodoProps } = this.props;
     e.preventDefault();
-    if (this.state.title.trim()) {
-      this.props.addTodoProps(this.state.title);
+    if (title.trim()) {
+      addTodoProps(title);
       this.setState({
         title: '',
       });
     } else {
-      alert('Please write item');
+      const alert = 'Please enter a todo';
+      alert(alert);
     }
   };
 
@@ -43,4 +47,13 @@ class InputTodo extends PureComponent {
     );
   }
 }
+
+InputTodo.propTypes = {
+  addTodoProps: PropTypes.func,
+};
+
+InputTodo.defaultProps = {
+  addTodoProps: () => {},
+};
+
 export default InputTodo;
